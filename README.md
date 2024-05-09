@@ -189,6 +189,7 @@ Virtual host allows us to have multiple websites loacated on a single machine an
     ```
     sudo rm /var/www/projectlamp/index.php
     ```
+    ![Remove](./images/remove.png)
 
 Conclusion, deployed a LAMP stack website in AWS cloud.
 
