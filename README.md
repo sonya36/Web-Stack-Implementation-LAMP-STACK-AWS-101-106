@@ -14,6 +14,7 @@
 - Private key was generated and named it as "First-instance-private-key" and downloaded ".pem" file.
 ### Connecting virtual server to EC2 instance
 Used the same private key previously downloaded to connect to EC2 instace via ssh:
+- Created security group configuration adding ssh and updated this configuration to my ec2 instance to access  TCp port 22.
 - Changed the permission for "First-Instance-Key.pem" file as
 
 ```
@@ -39,6 +40,30 @@ sudo apt install apache2
 ```
 sudo systemctl status apache2
 ```
+![Apachestatus](./images/apachestatus.png)
+
+Conclusion, First WebServer had been launched.
+
+- To recieve any traffic by our webserver, we need to open TCP port 80.Added TCP port 80 in security group inbound rules.
+NOte: TCP port 80 is the default port that web browsers use to access web pages on the internet 
+
+#### We can access Webserver locally and from the internet.
+- Checked how we can access it loaclly, by:
+```
+curl http://localhost:80
+curl http://127.0.0.1:80
+```
+![Locallyaccess](./images/locally.png)
+
+- Finally get access to Apache Ubuntu Default Page in our web browser that previously got by curl command with nice html formatting by web browser.
+
+![Defaultpage](./images/defaultpage.png)
+
+
+
+
+
+
 
 
 
