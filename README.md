@@ -8,39 +8,40 @@
  - Finally, Aws free tier account created.
 ### Setting up virtual ubuntu server
 - First, created an ec2 instance named it as "First-instance-aws" in a region "Ohio" with instance type "t2.micro", AMIAMI (Amazon Machine Image ) as "ubuntu" security group and all other required configuration was selected as default here.
-![EC2 Instance](./images/EC2.png)
+ ![EC2 Instance](./images/EC2.png)
 - Latest version of ubuntu was selected which is "Ubuntu Server 22.04 LTS (HVM)". An AMI is a template that contains the software configuration (operating system, application server, and applications) required to launch your instance.
-![Ubuntu AMI](./images/AMI_ubuntu.png)
+ ![Ubuntu AMI](./images/AMI_ubuntu.png)
 - Private key was generated and named it as "First-instance-private-key" and downloaded ".pem" file.
 ### Connecting virtual server to EC2 instance
 Used the same private key previously downloaded to connect to EC2 instace via ssh:
 - Created security group configuration adding ssh and updated this configuration to my ec2 instance to access  TCp port 22.
 - Changed the permission for "First-Instance-Key.pem" file as
 
-```
-chmod 400 "First-Instance-Key.pem"
-```
+  ```
+  chmod 400 "First-Instance-Key.pem"
+  ```
 - Connected to the instance as
-```
-ssh -i "First-instance-private-key.pem" ubuntu@ec2-18-219-15-149.us-east-2.compute.amazonaws.com
-```
-![Ubuntuip](./images/ubuntuip.png)
+  ```
+  ssh -i "First-instance-private-key.pem" ubuntu@ec2-18-219-15-149.us-east-2.compute.amazonaws.com
+  ```
+  ![Ubuntuip](./images/ubuntuip.png)
+
 Conclusion, Linux Server in the cloud as created.
 
 ## AWS-103 : Installing apache and Updating the Firewall
 - Apache was installed using Ubuntu's package manager 'apt'
-```
-sudo apt update
-sudo apt install apache2
-```
-![AptUpdate](./images/aptupdate.png)
-![AptInstall](./images/aptinstall.png)
+  ```
+  sudo apt update
+  sudo apt install apache2
+  ```
+  ![AptUpdate](./images/aptupdate.png)
+  ![AptInstall](./images/aptinstall.png)
 
 - Verified that apache2 is running as a service in ubuntu as
-```
-sudo systemctl status apache2
-```
-![Apachestatus](./images/apachestatus.png)
+  ```
+  sudo systemctl status apache2
+  ```
+  ![Apachestatus](./images/apachestatus.png)
 
 Conclusion, First WebServer had been launched.
 
@@ -49,15 +50,62 @@ NOte: TCP port 80 is the default port that web browsers use to access web pages 
 
 #### We can access Webserver locally and from the internet.
 - Checked how we can access it loaclly, by:
-```
-curl http://localhost:80
-curl http://127.0.0.1:80
-```
-![Locallyaccess](./images/locally.png)
+  ```
+  curl http://localhost:80
+  curl http://127.0.0.1:80
+  ```
+  ![Locallyaccess](./images/locally.png)
 
 - Finally get access to Apache Ubuntu Default Page in our web browser that previously got by curl command with nice html formatting by web browser.
 
-![Defaultpage](./images/defaultpage.png)
+  ![Defaultpage](./images/defaultpage.png)
+
+## AWS-104 : Installing MySQL
+- Installed MySql by using
+  ```
+  sudo apt install mysql-server
+  ```
+- Set the MySql password 
+  ```
+   ALTERUSER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'place the password here';
+  ```
+
+  ![MYSQL](./images/mysql.png)
+
+- Did mysql secure installation
+  ```
+  sudo mysql_secure_installation
+  ```
+- Then, Logged into mysql server running
+  ```
+  sudo mysql -p
+  ```
+- Exited from MySql
+  ```
+  exit
+  ```
+
+Conclusion, Using all these command.MySQl server was installed and secured.
+
+## AWS-105 : Installing PHP
+- Installed php using command :
+  ```
+  sudo apt install php libapache2-mod-php php-mysql
+  ```
+- Confirming Php version
+  ```
+  php -v
+  ```
+  ![PHPversion](./images/phpv.png)
+
+Conclusion, LAMP stack is completely installed and fully operational
+
+
+
+
+
+
+
 
 
 
