@@ -1,13 +1,13 @@
 # Documentation of LAMP-STACK-AWS-102-107
 ## AWS-102 : Setting up AWS account and Virtual Ubuntu 
 ### Created Aws account
- - Went to AWS home page
- - Chose create an Aws account
- - Entered email address in root user email address and got verified with  verification email
- - Completed other set up process like ( Billing addresss, mastercard verification etc)
+ - Went to AWS home page.
+ - Chose create an Aws account.
+ - Entered email address in root user email address and got verified with  verification email.
+ - Completed other set up process like ( Billing addresss, mastercard verification etc).
  - Finally, Aws free tier account created.
 ### Setting up virtual ubuntu server
-- First, created an ec2 instance named it as "First-instance-aws" in a region "Ohio" with instance type "t2.micro", AMIAMI (Amazon Machine Image ) as "ubuntu" security group and all other required configuration was selected as default here.
+- First, created an ec2 instance named it as "First-instance-aws" in a region "Ohio" with instance type "t2.micro", AMI (Amazon Machine Image ) as "ubuntu" security group and all other required configuration was selected as default here.
  ![EC2 Instance](./images/EC2.png)
 - Latest version of ubuntu was selected which is "Ubuntu Server 22.04 LTS (HVM)". An AMI is a template that contains the software configuration (operating system, application server, and applications) required to launch your instance.
  ![Ubuntu AMI](./images/AMI_ubuntu.png)
@@ -45,11 +45,11 @@ Conclusion, Linux Server in the cloud as created.
 
 Conclusion, First WebServer had been launched.
 
-- To recieve any traffic by our webserver, we need to open TCP port 80.Added TCP port 80 in security group inbound rules.
-NOte: TCP port 80 is the default port that web browsers use to access web pages on the internet 
+- To recieve any traffic by my webserver, I need to open TCP port 80. Added TCP port 80 in security group inbound rules of my ec2 instance.
+Note: TCP port 80 is the default port that web browsers use to access web pages on the internet 
 
 #### We can access Webserver locally and from the internet.
-- Checked how we can access it loaclly, by:
+- Checked how I can access it loaclly, by:
   ```
   curl http://localhost:80
   curl http://127.0.0.1:80
@@ -85,7 +85,8 @@ NOte: TCP port 80 is the default port that web browsers use to access web pages 
   exit
   ```
 
-Conclusion, Using all these command.MySQl server was installed and secured.
+## Conclusion
+Using all these command. MySQl server was installed and secured.
 
 ## AWS-105 : Installing PHP
 - Installed php using command :
@@ -98,7 +99,8 @@ Conclusion, Using all these command.MySQl server was installed and secured.
   ```
   ![PHPversion](./images/phpv.png)
 
-Conclusion, LAMP stack is completely installed and fully operational.
+## Conclusion
+LAMP stack is completely installed and fully operational.
 
 ## AWS-106 : Creating a Virtual Host for website using Apache
 Virtual host allows us to have multiple websites loacated on a single machine and users of the websites will not even notice it. 
@@ -126,11 +128,11 @@ Virtual host allows us to have multiple websites loacated on a single machine an
     </VirtualHost>
     ```
   - ESC button was pressed to come out of insert mode, typed ": wq" for save and quit and pressed enter.
-  - ls command to show the new file in the sites-available directory
+  - ls command to show the new file in the sites-available directory:
     ```
     sudo ls /etc/apache2/sites-available
     ```
-  - Used a2ensite command to enable the new virtual host
+  - Used a2ensite command to enable the new virtual host:
     ```
     sudo a2ensite projectlamp
     ```
@@ -138,7 +140,7 @@ Virtual host allows us to have multiple websites loacated on a single machine an
     ```
     sudo a2dissite 000-default
     ```
-  - To make sure configuration file doesn't contain syntax error
+  - To make sure configuration file doesn't contain syntax error:
     ```
     sudo apache2ctl configtest
     ```
@@ -148,7 +150,7 @@ Virtual host allows us to have multiple websites loacated on a single machine an
     ```
     ![Projectlamp](./images/projectlamp.png)
 
-  Note: New website was active but the web root was empty.So, created an index.html to test virtual host works as expected.
+  Note: New website was active but the web root was empty. So, created an index.html to test virtual host works as expected.
     ```
     sudo echo 'Hello LAMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-
     hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectlamp/index.html
@@ -191,7 +193,8 @@ Virtual host allows us to have multiple websites loacated on a single machine an
     ```
     ![Remove](./images/remove.png)
 
-Conclusion, deployed a LAMP stack website in AWS cloud.
+## Conclusion
+Deployed a LAMP stack website in AWS cloud.
 
 
 
