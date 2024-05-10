@@ -26,7 +26,8 @@ Used the same private key previously downloaded to connect to EC2 instace via ss
   ```
   ![Ubuntuip](./images/ubuntuip.png)
 
-Conclusion, Linux Server in the cloud as created.
+### Conclusion 
+Linux Server in the cloud was created.
 
 ## AWS-103 : Installing apache and Updating the Firewall
 - Apache was installed using Ubuntu's package manager 'apt'
@@ -43,7 +44,8 @@ Conclusion, Linux Server in the cloud as created.
   ```
   ![Apachestatus](./images/apachestatus.png)
 
-Conclusion, First WebServer had been launched.
+### Conclusion 
+First WebServer had been launched.
 
 - To recieve any traffic by my webserver, I need to open TCP port 80. Added TCP port 80 in security group inbound rules of my ec2 instance.
 Note: TCP port 80 is the default port that web browsers use to access web pages on the internet 
@@ -85,7 +87,7 @@ Note: TCP port 80 is the default port that web browsers use to access web pages 
   exit
   ```
 
-## Conclusion
+### Conclusion
 Using all these command, MySQl server was installed and secured.
 
 ## AWS-105 : Installing PHP
@@ -99,7 +101,7 @@ Using all these command, MySQl server was installed and secured.
   ```
   ![PHPversion](./images/phpv.png)
 
-## Conclusion
+### Conclusion
 LAMP stack is completely installed and fully operational.
 
 ## AWS-106 : Creating a Virtual Host for website using Apache
@@ -150,7 +152,7 @@ Virtual host allows us to have multiple websites loacated on a single machine an
     ```
     ![Projectlamp](./images/projectlamp.png)
 
-  Note: New website was active but the web root was empty. So, created an index.html to test virtual host works as expected.
+    Note: New website was active but the web root was empty. So, created an index.html to test virtual host works as expected.
     ```
     sudo echo 'Hello LAMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-
     hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectlamp/index.html
@@ -193,7 +195,7 @@ Virtual host allows us to have multiple websites loacated on a single machine an
     ```
     ![Remove](./images/remove.png)
 
-## Conclusion
+### Conclusion
 Deployed a LAMP stack website in AWS cloud.
 
 
