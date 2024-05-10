@@ -86,7 +86,7 @@ Note: TCP port 80 is the default port that web browsers use to access web pages 
   ```
 
 ## Conclusion
-Using all these command. MySQl server was installed and secured.
+Using all these command, MySQl server was installed and secured.
 
 ## AWS-105 : Installing PHP
 - Installed php using command :
